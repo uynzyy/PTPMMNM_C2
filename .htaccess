@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /PHP/quanlysinhvien/
+
+# Nếu file hoặc folder tồn tại thì không rewrite
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Chuyển tất cả truy cập về index.php và giữ nguyên tham số URL
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
